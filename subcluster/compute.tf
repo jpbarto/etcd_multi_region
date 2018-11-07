@@ -1,5 +1,21 @@
 variable "instance_profile_id" {}
 
+data "aws_ami" "coreos_ami" {
+  provider    = "aws.module_region"
+  most_recent = true
+  owners = ["595879546273"]
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  filter {
+    name   = "name"
+    values = ["CoreOS-stable-*"]
+  }
+}
+
 data "aws_ami" "amazon_linux_ami" {
   provider    = "aws.module_region"
   most_recent = true
@@ -24,7 +40,7 @@ resource "aws_key_pair" "default" {
 resource "aws_launch_configuration" "default" {
   provider                    = "aws.module_region"
   name_prefix                 = "etcd-cluster-node-"
-  image_id                    = "${data.aws_ami.amazon_linux_ami.id}"
+  image_id                    = "${data.aws_ami.coreos_ami.id}"
   instance_type               = "${var.instance_type}"
   ebs_optimized               = true
   iam_instance_profile        = "${var.instance_profile_id}"
@@ -48,7 +64,7 @@ resource "aws_launch_configuration" "default" {
 resource "aws_autoscaling_group" "default" {
   provider                  = "aws.module_region"
   availability_zones        = "${var.azs}"
-  name                      = "etcd-cluster-node-${count.index}"
+  name                      = "etcd-cluster-node-asg"
   max_size                  = 3
   min_size                  = 1
   desired_capacity          = 3
