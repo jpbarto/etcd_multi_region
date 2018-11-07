@@ -47,7 +47,7 @@ resource "aws_launch_configuration" "default" {
   key_name                    = "${aws_key_pair.default.key_name}"
   enable_monitoring           = false
   associate_public_ip_address = true
-  user_data                   = "echo date > /tmp/built.on"
+  # user_data                   = "echo date > /tmp/built.on"
   security_groups             = ["${aws_security_group.etcd-cluster-sg.id}"]
 
   root_block_device {
@@ -77,7 +77,7 @@ resource "aws_autoscaling_group" "default" {
 
   tag {
     key                 = "Name"
-    value               = "etcd-cluster-node-group"
+    value               = "etcdscluster-node-group"
     propagate_at_launch = true
   }
 
