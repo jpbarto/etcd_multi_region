@@ -25,3 +25,9 @@ variable "ssh_public_key" {
 variable "project_name" {
   default = "etcd-global-cluster"
 }
+
+variable "ntp_host" {
+  default = "169.254.169.123"
+}
+
+variable "discovery_url" { }

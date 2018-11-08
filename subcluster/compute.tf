@@ -47,7 +47,7 @@ resource "aws_launch_configuration" "default" {
   key_name                    = "${aws_key_pair.default.key_name}"
   enable_monitoring           = false
   associate_public_ip_address = true
-  # user_data                   = "echo date > /tmp/built.on"
+  user_data                   = "${data.template_file.cloud-init.rendered}"
   security_groups             = ["${aws_security_group.etcd-cluster-sg.id}"]
 
   root_block_device {

@@ -4,3 +4,4 @@ Also based heavily on the Monzo ETCD deployment templates at https://github.com/
 
 If using CoreOS remember to login with a username of core@
 
+Obtain a discovery token url from https://discovery.etcd.io/new?size=9
