@@ -6,10 +6,10 @@ Conflicts=etcd2.service
 
 [Service]
 EnvironmentFile=/run/metadata/coreos
-Environment="ETCD_ADVERTISE_CLIENT_URLS=http://\${COREOS_EC2_IPV4_LOCAL}:2379"
-Environment="ETCD_INITIAL_ADVERTISE_PEER_URLS=http://\${COREOS_EC2_IPV4_LOCAL}:2380"
+Environment="ETCD_ADVERTISE_CLIENT_URLS=http://$${COREOS_EC2_IPV4_LOCAL}:2379"
+Environment="ETCD_INITIAL_ADVERTISE_PEER_URLS=http://$${COREOS_EC2_IPV4_LOCAL}:2380"
 Environment="ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379"
-Environment="ETCD_LISTEN_PEER_URLS=http://\${COREOS_EC2_IPV4_LOCAL}:2380"
+Environment="ETCD_LISTEN_PEER_URLS=http://$${COREOS_EC2_IPV4_LOCAL}:2380"
 Environment="ETCD_DISCOVERY=${discovery_url}"
 ExecStart=
 ExecStart=/usr/lib/coreos/etcd-wrapper $ETCD_OPTS

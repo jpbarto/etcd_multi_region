@@ -132,6 +132,7 @@ module "london_cluster" {
   neighbor_2_peer_id    = "${aws_vpc_peering_connection.london_to_paris.id}"
   azs                   = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
   instance_profile_id   = "${aws_iam_instance_profile.default.id}"
+  discovery_url         = "${var.discovery_url}"
 }
 
 module "frankfurt_cluster" {
@@ -148,6 +149,7 @@ module "frankfurt_cluster" {
   neighbor_2_peer_id    = "${aws_vpc_peering_connection.london_to_frankfurt.id}"
   azs                   = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
   instance_profile_id   = "${aws_iam_instance_profile.default.id}"
+  discovery_url         = "${var.discovery_url}"
 }
 
 module "paris_cluster" {
@@ -164,4 +166,5 @@ module "paris_cluster" {
   neighbor_2_peer_id    = "${aws_vpc_peering_connection.london_to_paris.id}"
   azs                   = ["eu-west-3a", "eu-west-3b", "eu-west-3c"]
   instance_profile_id   = "${aws_iam_instance_profile.default.id}"
+  discovery_url         = "${var.discovery_url}"
 }
