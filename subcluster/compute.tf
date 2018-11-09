@@ -37,6 +37,16 @@ resource "aws_key_pair" "default" {
   public_key = "${var.ssh_public_key}"
 }
 
+resource "aws_instance" "benchmark" {
+  ami = "${data.aws_ami.amazon_linux_ami.id}"
+  instance_type = "t3.xlarge"
+
+  tags = {
+    key = "Project",
+    value = "${var.project_name}"
+  }
+}
+
 resource "aws_launch_configuration" "default" {
   provider                    = "aws.module_region"
   name_prefix                 = "etcd-cluster-node-"

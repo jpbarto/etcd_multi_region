@@ -121,6 +121,7 @@ resource "aws_vpc_peering_connection_accepter" "london_to_paris_accept" {
 module "london_cluster" {
   source = "./subcluster"
 
+  project_name          = "${var.project_name}"
   vpc_id                = "${aws_vpc.london_vpc.id}"
   vpc_cidr              = "${aws_vpc.london_vpc.cidr_block}"
   route_table_id        = "${aws_vpc.london_vpc.default_route_table_id}"
@@ -133,11 +134,13 @@ module "london_cluster" {
   azs                   = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
   instance_profile_id   = "${aws_iam_instance_profile.default.id}"
   discovery_url         = "${var.discovery_url}"
+  create_benchmark      = "${var.create_benchmark}"
 }
 
 module "frankfurt_cluster" {
   source = "./subcluster"
 
+  project_name          = "${var.project_name}"
   vpc_id                = "${aws_vpc.frankfurt_vpc.id}"
   vpc_cidr              = "${aws_vpc.frankfurt_vpc.cidr_block}"
   route_table_id        = "${aws_vpc.frankfurt_vpc.default_route_table_id}"
@@ -155,6 +158,7 @@ module "frankfurt_cluster" {
 module "paris_cluster" {
   source = "./subcluster"
 
+  project_name          = "${var.project_name}"
   vpc_id                = "${aws_vpc.paris_vpc.id}"
   vpc_cidr              = "${aws_vpc.paris_vpc.cidr_block}"
   route_table_id        = "${aws_vpc.paris_vpc.default_route_table_id}"
