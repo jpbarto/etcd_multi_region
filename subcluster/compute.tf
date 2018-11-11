@@ -40,7 +40,7 @@ resource "aws_key_pair" "default" {
 resource "aws_instance" "benchmark" {
   count = "${var.create_benchmark}"
   ami = "${data.aws_ami.amazon_linux_ami.id}"
-  instance_type = "t3.xlarge"
+  instance_type = "c5.4xlarge"
   associate_public_ip_address = true
   subnet_id = "${aws_subnet.default.1.id}"
   vpc_security_group_ids = ["${aws_security_group.etcd-cluster-sg.id}"]

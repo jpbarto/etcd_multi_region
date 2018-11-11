@@ -9,7 +9,7 @@ variable "azs" {
 
 variable "instance_type" {
   description = "Instance type to be used for ETCD cluster nodes"
-  default = "t3.large"
+  default = "c5.2xlarge"
 }
 
 variable "ssh_public_key" {
