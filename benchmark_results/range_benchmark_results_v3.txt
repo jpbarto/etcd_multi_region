@@ -1,0 +1,32 @@
+./go/bin/benchmark --endpoints=ip-172-2-181-181.eu-west-2.compute.internal:2379,ip-172-2-80-57.eu-west-2.compute.internal:2379,ip-172-2-62-116.eu-west-2.compute.internal:2379 --conns=100 --clients=1000 range rangebmark --consistency=s --total=100000
+
+Summary:
+  Total:        0.3836 secs.
+  Slowest:      0.0198 secs.
+  Fastest:      0.0002 secs.
+  Average:      0.0029 secs.
+  Stddev:       0.0017 secs.
+  Requests/sec: 260720.3720
+
+Response time histogram:
+  0.0002 [1]    |
+  0.0021 [37354]        |∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
+  0.0041 [45284]        |∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
+  0.0061 [11109]        |∎∎∎∎∎∎∎∎∎
+  0.0080 [4213] |∎∎∎
+  0.0100 [1446] |∎
+  0.0119 [471]  |
+  0.0139 [95]   |
+  0.0159 [11]   |
+  0.0178 [11]   |
+  0.0198 [5]    |
+
+Latency distribution:
+  10% in 0.0014 secs.
+  25% in 0.0018 secs.
+  50% in 0.0025 secs.
+  75% in 0.0034 secs.
+  90% in 0.0052 secs.
+  95% in 0.0065 secs.
+  99% in 0.0092 secs.
+  99.9% in 0.0122 secs.

@@ -1,0 +1,32 @@
+./go/bin/benchmark --endpoints=ip-172-2-181-181.eu-west-2.compute.internal:2379,ip-172-2-80-57.eu-west-2.compute.internal:2379,ip-172-2-62-116.eu-west-2.compute.internal:2379 --conns=100 --clients=1000 put --key-size=8 --sequential-keys --total=100000 --val-size=256
+
+Summary:
+  Total:        10.1067 secs.
+  Slowest:      0.3230 secs.
+  Fastest:      0.0197 secs.
+  Average:      0.1002 secs.
+  Stddev:       0.0616 secs.
+  Requests/sec: 9894.4576
+
+Response time histogram:
+  0.0197 [1]    |
+  0.0501 [27119]        |∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
+  0.0804 [16900]        |∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
+  0.1107 [15400]        |∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
+  0.1410 [14165]        |∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
+  0.1714 [13339]        |∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
+  0.2017 [6651] |∎∎∎∎∎∎∎∎∎
+  0.2320 [3660] |∎∎∎∎∎
+  0.2624 [1486] |∎∎
+  0.2927 [838]  |∎
+  0.3230 [441]  |
+
+Latency distribution:
+  10% in 0.0265 secs.
+  25% in 0.0413 secs.
+  50% in 0.0924 secs.
+  75% in 0.1440 secs.
+  90% in 0.1810 secs.
+  95% in 0.2133 secs.
+  99% in 0.2731 secs.
+  99.9% in 0.3208 secs.
